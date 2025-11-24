@@ -1,0 +1,276 @@
+/* === Layout === */
+.dashboard-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === Sidebar === */
+.dashboard-sidebar {
+  width: 250px;
+  background: #1e293b;
+  color: #fff;
+  padding: 20px;
+  border-right: 3px solid #334155;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 20px;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-sidebar li {
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  display: block;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.nav-button:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.nav-button.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.4);
+}
+
+/* === Main Container === */
+.register-container2 {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.register-container2 h2 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2563eb;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* === Message === */
+.msg {
+  background: #e0f2fe;
+  border-left: 5px solid #2563eb;
+  color: #1e3a8a;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* === Agent Form === */
+.agent-form {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  /* width: 100px; */
+}
+
+.agent-form input {
+  padding: 12px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+  width: 200px;
+}
+
+.agent-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+/* === Upload Section === */
+.upload-section {
+  grid-column: span 2;
+}
+
+.upload-section label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+.upload-section input[type="file"] {
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  width: 50%;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 10px;
+  object-fit: cover;
+  border: 2px solid #2563eb;
+}
+
+/* === Add Button === */
+.btn-add {
+  grid-column: span 2;
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 200px;
+  margin-left: 250px;
+}
+
+.btn-add:hover {
+  background: #1d4ed8;
+}
+
+/* === Agent List === */
+.agent-list {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.agent-list h3 {
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.agent-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.agent-list th,
+.agent-list td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.agent-list th {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.agent-list td {
+  color: #334155;
+}
+
+/* === Agent Photo === */
+.agent-photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #94a3b8;
+}
+
+/* === Action Buttons === */
+.btn-assign,
+.btn-delete {
+  padding: 8px 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  margin-right: 6px;
+  transition: 0.3s;
+}
+
+.btn-assign {
+  background: #10b981;
+  color: #fff;
+}
+
+.btn-assign:hover {
+  background: #059669;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .dashboard-page {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 3px solid #334155;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  .register-container2 {
+    padding: 20px;
+  }
+
+  .agent-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-add {
+    grid-column: span 1;
+  }
+
+  .agent-list table {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,191 @@
+/* ======================================================
+   PAGE LAYOUT (Works With Sidebar)
+====================================================== */
+/* Allow page to grow naturally */
+.agent-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh; /* instead of height: 100vh */
+  background: #f4f6f9;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Make main content scrollable if needed */
+.agent-main {
+  flex: 1;
+  padding: 20px 40px;
+  margin-left: 250px;
+  overflow-y: auto;      /* <--- FIXES STATIC PAGE */
+  height: 100%;          /* required for scroll */
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.agent-page h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+/* ======================================================
+   PROFILE CARD
+====================================================== */
+.profile-card {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile Image */
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #007bff;
+}
+
+/* File input hidden style */
+.profile-card input[type="file"] {
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+/* ======================================================
+   PROFILE INFO SECTION
+====================================================== */
+.profile-info {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.profile-info label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-top: 10px;
+  display: block;
+}
+
+.profile-info p {
+  padding: 10px;
+  background: #f0f4ff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #333;
+  border: 1px solid #d9e4ff;
+}
+
+/* Editable input fields */
+.profile-info input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bfcffe;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.profile-info input:focus {
+  outline: none;
+  border-color: #007bff;
+  background: #eef4ff;
+}
+
+/* ======================================================
+   ACTION BUTTONS
+====================================================== */
+.profile-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.profile-actions button {
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-actions button:hover {
+  background: #005dcc;
+  transform: translateY(-2px);
+}
+
+/* Cancel Button */
+.profile-actions button:nth-child(2) {
+  background: #d9534f;
+}
+
+.profile-actions button:nth-child(2):hover {
+  background: #b4413d;
+}
+
+/* Edit button single view */
+.profile-actions button:last-child {
+  background: #28a745;
+}
+
+.profile-actions button:last-child:hover {
+  background: #1e7d33;
+}
+
+/* ======================================================
+   RESPONSIVE DESIGN
+====================================================== */
+@media (max-width: 1200px) {
+  .agent-main {
+    margin-left: 230px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .agent-main {
+    margin-left: 0; /* Sidebar collapses in mobile */
+  }
+
+  .profile-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-info label {
+    font-size: 13px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .profile-actions button {
+    width: 100%;
+  }
+}

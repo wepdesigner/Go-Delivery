@@ -1,0 +1,108 @@
+{
+  "deliveries": [
+    {
+      "id": "1",
+      "trackingNumber": "DS-20251021-983421",
+      "senderName": "TechMart Ltd",
+      "senderPhone": "+1 405 876 3421",
+      "recipientName": "Sarah Johnson",
+      "recipientPhone": "+1 208 454 7654",
+      "origin": "New York, NY",
+      "destination": "Los Angeles, CA",
+      "description": "5x Laptop Units - Dell Latitude 5520",
+      "status": "Delivered",
+      "history": [
+        {
+          "timestamp": "2025-10-18T08:15:00Z",
+          "status": "Pending",
+          "note": "Order created and waiting pickup"
+        },
+        {
+          "timestamp": "2025-10-19T09:00:00Z",
+          "status": "In Transit",
+          "note": "Package left New York sorting center"
+        },
+        {
+          "timestamp": "2025-10-20T15:30:00Z",
+          "status": "Delivered",
+          "note": "Received by recipient in Los Angeles"
+        }
+      ],
+      "createdAt": "2025-10-18T08:00:00Z",
+      "lastUpdated": "2025-10-20T15:30:00Z"
+    },
+    {
+      "id": "2",
+      "trackingNumber": "DS-20251021-224917",
+      "senderName": "GreenFresh Farms",
+      "senderPhone": "+1 302 885 2344",
+      "recipientName": "Food Basket Market",
+      "recipientPhone": "+1 405 654 3421",
+      "origin": "Dallas, TX",
+      "destination": "Denver, CO",
+      "description": "Pallet of organic vegetables (25kg)",
+      "status": "In Transit",
+      "history": [
+        {
+          "timestamp": "2025-10-19T12:00:00Z",
+          "status": "Pending",
+          "note": "Shipment created"
+        },
+        {
+          "timestamp": "2025-10-20T14:00:00Z",
+          "status": "In Transit",
+          "note": "Truck departed Dallas hub"
+        }
+      ],
+      "createdAt": "2025-10-19T11:45:00Z",
+      "lastUpdated": "2025-10-20T14:00:00Z"
+    },
+    {
+      "id": "3",
+      "trackingNumber": "DS-20251021-556738",
+      "senderName": "MedSupply Co.",
+      "senderPhone": "+1 703 987 5542",
+      "recipientName": "City Hospital",
+      "recipientPhone": "+1 703 343 2211",
+      "origin": "Chicago, IL",
+      "destination": "Detroit, MI",
+      "description": "Medical equipment - 12 oxygen cylinders",
+      "status": "Pending",
+      "history": [
+        {
+          "timestamp": "2025-10-21T09:30:00Z",
+          "status": "Pending",
+          "note": "Shipment order created"
+        }
+      ],
+      "createdAt": "2025-10-21T09:30:00Z",
+      "lastUpdated": "2025-10-21T09:30:00Z"
+    },
+    {
+      "id": "4",
+      "trackingNumber": "DS-20251021-334182",
+      "senderName": "QuickDelivery Hub",
+      "senderPhone": "+44 20 4456 1123",
+      "recipientName": "John Doe",
+      "recipientPhone": "+44 20 8899 2211",
+      "origin": "London, UK",
+      "destination": "Manchester, UK",
+      "description": "Small parcel (5kg) - Electronics",
+      "status": "Cancelled",
+      "history": [
+        {
+          "timestamp": "2025-10-17T13:10:00Z",
+          "status": "Pending",
+          "note": "Shipment created"
+        },
+        {
+          "timestamp": "2025-10-17T16:00:00Z",
+          "status": "Cancelled",
+          "note": "Sender cancelled shipment"
+        }
+      ],
+      "createdAt": "2025-10-17T13:00:00Z",
+      "lastUpdated": "2025-10-17T16:00:00Z"
+    }
+  ]
+}

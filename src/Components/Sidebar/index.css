@@ -1,0 +1,105 @@
+/* ===== Sidebar.css ===== */
+
+/* Basic container */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0d1b2a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Logo or Brand */
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Menu list */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+/* Menu items */
+.sidebar ul li {
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hover effect */
+.sidebar ul li:hover {
+  background-color: #1b263b;
+  transform: translateX(3px);
+}
+
+/* Active item (optional) */
+.sidebar ul li.active {
+  background-color: #415a77;
+  font-weight: 600;
+}
+
+/* Bottom section for settings/logout */
+.sidebar .bottom-section {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+/* Icons inside sidebar (if used) */
+.sidebar ul li svg {
+  font-size: 1.2rem;
+}
+
+/* Hide sidebar on smaller screens by default */
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+/* When collapsed (for tablet/mobile) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    padding: 1rem;
+  }
+
+  .sidebar ul li {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+/* When even smaller (mobile) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+  }}

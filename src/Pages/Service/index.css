@@ -1,0 +1,96 @@
+/* src/styles/ScheduleDelivery.css */
+
+.schedule-delivery-section {
+   background: url('src/assets/service/ocean.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hero-images{
+     background: url('src/assets/service/ocean.jpg') no-repeat center center;
+}
+
+
+
+ .schedule-delivery-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.schedule-delivery-box {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  top: 20%;
+  left: 27%;
+}
+
+.schedule-delivery-box {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #333;
+}
+
+.schedule-delivery-box h2 {
+  margin-bottom: 10px;
+  margin-right: 100px;
+  font-size: 30px;
+  color: #333;
+}
+
+.schedule-delivery-box p {
+  margin-bottom: 25px;
+  color: #666;
+  font-size: 16px;
+}
+
+.schedule-delivery-box form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.schedule-delivery-box form button {
+  width: 105%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-delivery-box form button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .schedule-delivery-box {
+    padding: 30px 20px;
+  }
+
+  .schedule-delivery-box h2 {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,119 @@
+/* ======================================================
+   PAGE & LAYOUT
+   ====================================================== */
+.report-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: #f4f6f9;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Main container beside sidebar */
+.report-container {
+  flex: 1;
+  padding: 30px 40px;
+  margin-left: 260px; /* space for sidebar width */
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.report-container h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* ======================================================
+   DOWNLOAD BUTTON
+   ====================================================== */
+.download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #007bff, #0056d6);
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 25px;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #005eea, #003f9a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 94, 234, 0.3);
+}
+
+/* ======================================================
+   TABLE CONTAINER
+   ====================================================== */
+.table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow-x: auto; /* mobile responsive */
+}
+
+/* ======================================================
+   TABLE STYLING
+   ====================================================== */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #333;
+}
+
+.report-table th {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.report-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.report-table tr:hover {
+  background: #f1f6ff;
+}
+
+/* ======================================================
+   STATUS COLORS
+   ====================================================== */
+.status.delivered {
+  color: #1c8d1c;
+  font-weight: bold;
+}
+
+.status.pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.status.cancelled {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* Small screen fixes */
+@media (max-width: 992px) {
+  .report-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+

@@ -1,0 +1,13 @@
+/* TrackingPage.css */
+.tracking-page {
+  max-width: 720px;
+  margin: 18px auto;
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+}
+.tracking-form { display:flex; gap:8px; margin-bottom: 10px; }
+.tracking-form input { flex:1; padding:8px; border-radius:8px; border:1px solid #ddd; }
+.tracking-form button { padding:8px 12px; border-radius:8px; background:#007bff;color:white;border:none;cursor:pointer; }
+.tracking-result p{ margin:6px 0; }
+.info { color: #666; }

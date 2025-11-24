@@ -1,0 +1,167 @@
+/* ===== Layout ===== */
+.agent-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f6fa;
+  overflow: hidden;
+}
+
+.agent-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Page ===== */
+.agent-page {
+  padding: 25px;
+  width: 100%;
+}
+
+.agent-page h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+/* ===== Delivery List ===== */
+.delivery-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* Delivery Card Styling */
+.delivery-card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+  border: 1px solid #eef0f4;
+}
+
+.delivery-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image */
+.delivery-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Info Section */
+.delivery-info h4 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.delivery-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== Status Tags ===== */
+.status-tag {
+  padding: 6px 12px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* Dynamic Status Colors */
+.status-tag.pending {
+  background: #ffeeba;
+  color: #856404;
+}
+
+.status-tag.delivered {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-tag.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* ===== Action Buttons ===== */
+.delivery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.delivery-actions button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+/* Button Types */
+.btn-view {
+  background: #007bff;
+  color: white;
+}
+
+.btn-view:hover {
+  background: #0062cc;
+}
+
+.btn-delivered {
+  background: #28a745;
+  color: white;
+}
+
+.btn-delivered:hover {
+  background: #218838;
+}
+
+.btn-cancelled {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-cancelled:hover {
+  background: #c82333;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .agent-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .agent-page h2 {
+    font-size: 22px;
+  }
+
+  .delivery-card {
+    padding: 14px;
+  }
+
+  .delivery-card img {
+    height: 150px;
+  }
+}

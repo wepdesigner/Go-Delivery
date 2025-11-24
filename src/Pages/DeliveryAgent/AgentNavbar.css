@@ -1,0 +1,31 @@
+.agent-navbar2 {
+  background: #ffffff;
+  padding: 15px 25px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 240px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-notify i {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.nav-profile img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0a58ff;
+}

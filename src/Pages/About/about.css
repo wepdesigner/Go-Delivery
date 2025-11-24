@@ -1,0 +1,78 @@
+.unique-image-section {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #f4f4f4; /* Optional: light background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-images{
+     background: url('src/assets/service/ocean.jpg') no-repeat center center;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* About hero */
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+/* .hero-button {
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+} */
+
+/* .hero-button:hover {
+  background-color: #e65c00;
+} */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* .hero-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  } */
+
+   .scrolling-images img {
+    width: 100vw;
+  }
+} 

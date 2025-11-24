@@ -1,0 +1,123 @@
+.dashboard-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f8;
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-sidebar {
+  background: #1f2937;
+  color: white;
+  width: 240px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #60a5fa;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-button {
+  display: block;
+  padding: 0.7rem 1rem;
+  margin: 0.4rem 0;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  background: #2563eb;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-top h1 {
+  font-size: 1.8rem;
+  color: #1f2937;
+}
+
+.refresh-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.refresh-btn:hover {
+  background: #1e40af;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card h4 {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.card.blue { border-top: 5px solid #3b82f6; }
+.card.yellow { border-top: 5px solid #facc15; }
+.card.green { border-top: 5px solid #22c55e; }
+.card.red { border-top: 5px solid #ef4444; }
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.chart-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 900px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}

@@ -1,0 +1,231 @@
+/* === Global Layout === */
+.dashboard-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === Sidebar === */
+.dashboard-sidebar {
+  width: 250px;
+  background: #1e293b;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #334155;
+}
+
+.dashboard-sidebar h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #f8fafc;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-sidebar li {
+  margin-bottom: 12px;
+}
+
+.nav-button {
+  display: block;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.nav-button.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* === Tracking Page Content === */
+.tracking-page {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #c6ccd6;
+}
+
+.tracking-page h2 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #2563eb;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* === Tracking Form === */
+.tracking-form2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.tracking-form2 input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.tracking-form2 input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+.tracking-form2 button {
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.tracking-form2 button:hover {
+  background: #1d4ed8;
+}
+
+/* === Info Message === */
+.info {
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* === Result Card === */
+.tracking-result {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  margin-bottom: 40px;
+  border: 1px solid #e2e8f0;
+}
+
+.tracking-result h3 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.tracking-result p {
+  margin: 6px 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.tracking-result strong {
+  color: #0f172a;
+}
+
+.tracking-image {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+/* === All Deliveries Section === */
+.all-deliveries2 {
+  margin-top: 40px;
+}
+
+.all-deliveries2 h2 {
+  color: #1e293b;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.deliveries-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+.deliveries-table th,
+.deliveries-table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.deliveries-table th {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.deliveries-table tr:hover {
+  background: #f1f5f9;
+}
+
+.deliveries-table td {
+  color: #334155;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .dashboard-page {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 3px solid #334155;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  .tracking-page {
+    padding: 20px;
+  }
+
+  .tracking-form2 {
+    flex-direction: column;
+  }
+
+  .tracking-form2 input,
+  .tracking-form2 button {
+    width: 100%;
+  }
+}

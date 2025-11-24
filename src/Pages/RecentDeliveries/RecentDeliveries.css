@@ -1,0 +1,20 @@
+/* RecentDeliveries.css */
+.recent-deliveries {
+  margin-top: 18px;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(22,22,22,0.03);
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid #f1f1f1; }
+.status.deliver { color: #198754; font-weight:700 }
+.status.pending { color: #fd7e14; font-weight:700 }
+.status.cancel { color: #dc3545; font-weight:700 }
+
+/* small screens */
+@media (max-width: 640px) {
+  th:nth-child(5), th:nth-child(6), th:nth-child(7),
+  td:nth-child(5), td:nth-child(6), td:nth-child(7) { display: none; }
+}
