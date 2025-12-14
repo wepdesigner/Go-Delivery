@@ -47,48 +47,121 @@ export function Landing() {
     <>
     <Navbar />
 
-    <main className="page home-page">
-<section className="hero">
-<div>
-<h1>Fast & Reliable Delivery</h1>
-<p>Send packages anywhere, anytime — safely and quickly.</p>
-<div className="hero-ctas">
-<Link to="/request" className="btn primary">Request a Delivery</Link>
-<Link to="/track" className="btn outline">Track My Package</Link>
-<a className="btn ghost" href="https://wa.me/237000000000?text=Hello%2C%20I%20want%20to%20send%20a%20package" target="_blank" rel="noreferrer">WhatsApp Us</a>
-</div>
-</div>
-<div className="hero-image">🚚</div>
+    {/* <main className="page home-page"> */}
+<section className="herof">
+  <div className="herof-content">
+    <h1>Fast & Reliable Delivery</h1>
+    <p>
+      Send packages anywhere, anytime — safely, quickly, and with full tracking.
+    </p>
+
+    <div className="herof-ctas">
+      <Link to="/request" className="btns primary">
+        Request a Delivery
+      </Link>
+
+      <Link to="/tracking" className="btns outline">
+        Track My Package
+      </Link>
+
+      <a
+        className="btns ghost"
+        href="https://wa.me/237676865110?text=Hello%2C%20I%20want%20to%20send%20a%20package"
+        target="_blank"
+        rel="noreferrer"
+      >
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+
+  <div className="herof-image">
+    <span>🚚</span>
+  </div>
 </section>
+
+
 
 
 <section className="how-it-works">
-<h2>How it works</h2>
-<div className="steps">
-<div className="step">1. Request Pickup</div>
-<div className="step">2. We Collect Your Package</div>
-<div className="step">3. Fast & Safe Delivery</div>
-</div>
+  <h2>How It Works</h2>
+
+  <div className="steps">
+    <div className="step">
+      <span className="step-number">1</span>
+      <h3>Request Pickup</h3>
+      <p>Place a pickup request in seconds from your dashboard.</p>
+    </div>
+
+    <div className="step">
+      <span className="step-number">2</span>
+      <h3>We Collect Your Package</h3>
+      <p>Our agent comes to collect your package safely.</p>
+    </div>
+
+    <div className="step">
+      <span className="step-number">3</span>
+      <h3>Fast & Safe Delivery</h3>
+      <p>Your delivery arrives on time with real-time tracking.</p>
+    </div>
+  </div>
 </section>
+
 
 
 <section className="quick-actions">
-<Link to="/request" className="card">📤 Send a Package</Link>
-<Link to="/tracking" className="card">🔎 Track Package</Link>
-<Link to="/contact" className="card">💬 Contact Support</Link>
+  <Link to="/request" className="action-card">
+    <span className="icon">📤</span>
+    <h3>Send a Package</h3>
+    <p>Create a delivery request instantly</p>
+  </Link>
+
+  <Link to="/tracking" className="action-card">
+    <span className="icon">🔎</span>
+    <h3>Track Package</h3>
+    <p>Follow your delivery in real time</p>
+  </Link>
+
+  <Link to="/contact" className="action-card">
+    <span className="icon">💬</span>
+    <h3>Contact Support</h3>
+    <p>We’re here to help you 24/7</p>
+  </Link>
 </section>
+
 
 
 <section className="services">
-<h2>Our Services</h2>
-<div className="service-grid">
-<div className="service">Express Delivery</div>
-<div className="service">Document Delivery</div>
-<div className="service">City-to-City</div>
-<div className="service">Door-to-Door</div>
-</div>
+  <h2>Our Services</h2>
+
+  <div className="service-grid">
+    <div className="service-card">
+      <span className="icon">⚡</span>
+      <h3>Express Delivery</h3>
+      <p>Fast and secure delivery for urgent packages</p>
+    </div>
+
+    <div className="service-card">
+      <span className="icon">📄</span>
+      <h3>Document Delivery</h3>
+      <p>Safe handling of important documents</p>
+    </div>
+
+    <div className="service-card">
+      <span className="icon">🏙️</span>
+      <h3>City-to-City</h3>
+      <p>Reliable intercity logistics solutions</p>
+    </div>
+
+    <div className="service-card">
+      <span className="icon">🏠</span>
+      <h3>Door-to-Door</h3>
+      <p>Pickup and delivery right to your doorstep</p>
+    </div>
+  </div>
 </section>
-</main>
+
+{/* </main> */}
 
         <section className="hero">
         

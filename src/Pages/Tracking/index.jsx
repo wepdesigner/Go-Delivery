@@ -36,22 +36,7 @@ export function Tracking() {
 
         <Navbar />
 
-             <section className="hero">
-       <div className="hero-overlay">
-             <h1 className="hero-title">Track Good</h1>
-       </div>
-        <div className="hero-images">
-          <div className="scrolling-images">
-          <img src="public\images\road-freight.jpg" alt="Background 1" />
-          <img src="public\images\airfreight-2.jpg" alt="Background 2" />
-          <img src="public\images\ware-1024x535-1.webp" alt="Background 3" />
-          {/* Repeating for infinite scroll effect */}
-          <img src="public\images\road-freight.jpg" alt="Background 1 duplicate" />
-          <img src="public\images\airfreight-2.jpg" alt="Background 2 duplicate" />
-          <img src="public\images\ware-1024x535-1.webp" alt="Background 3 duplicate" />
-        </div>
-     </div>
-     </section>
+             
 
         <div className="tracking-page">
           <h2>Track a Delivery</h2>
@@ -73,10 +58,17 @@ export function Tracking() {
               <p><strong>Tracking Number:</strong> {result.trackingNumber}</p>
               <p><strong>Client Name:</strong> {result.fullName}</p>
               <p><strong>Phone:</strong> {result.phone}</p>
-              <p><strong>Email:</strong> {result.email}</p>
+              {result.email && <p><strong>Email:</strong> {result.email}</p>}
               <p><strong>Status:</strong> {result.status}</p>
-              <p><strong>Expedition Date:</strong> {result.expeditionDate}</p>
-              <p><strong>Delivery Date:</strong> {result.deliveryDate}</p>
+              {result.pickup && <p><strong>Pickup Location:</strong> {result.pickup}</p>}
+              {result.delivery && <p><strong>Delivery Location:</strong> {result.delivery}</p>}
+              {result.expeditionDate && <p><strong>Expedition Date:</strong> {result.expeditionDate}</p>}
+              {result.deliveryDate && <p><strong>Delivery Date:</strong> {result.deliveryDate}</p>}
+              {result.size && <p><strong>Package Size:</strong> {result.size}</p>}
+              {result.weight && <p><strong>Weight:</strong> {result.weight} kg</p>}
+              {result.urgency && <p><strong>Urgency:</strong> {result.urgency}</p>}
+              {result.cost && <p><strong>Cost:</strong> {result.cost.toLocaleString()} FCFA</p>}
+              {result.description && <p><strong>Description:</strong> {result.description}</p>}
               {result.image && (
                 <img
                   src={result.image}

@@ -66,7 +66,7 @@ export default function Assigned() {
     );
 
     setDeliveries(assigned);
-  }, []);
+  }, [agent?.email, agent?.fullName]);
 
   const updateStatus = (id, newStatus) => {
     const all = JSON.parse(localStorage.getItem("deliveries")) || [];

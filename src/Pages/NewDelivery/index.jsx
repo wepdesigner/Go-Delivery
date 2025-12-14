@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { genTracking } from "../Trackings";
 import "./index.css"
 import { Navbar2 } from "../../Components/Navbar2";
 // import { NewDelivery } from "../services/deliveryService";

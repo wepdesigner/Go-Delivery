@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="hero-content">
         <h1>Fast & Reliable Delivery, Anytime, Anywhere.</h1>
         <p>Track, manage, and deliver with ease using DeliverEase.</p>
-        <button className="hero-btn"><a href="/register">Get Sarted</a></button>
+        <button className="hero-btn"><a href="/login">Get Sarted</a></button>
        
       </div>
     </header>

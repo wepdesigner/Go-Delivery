@@ -1,101 +1,158 @@
-import React, { useState } from "react";
-import './index.css'
+import React, { useState, useEffect } from "react";
+import "./index.css";
 import { Navbar } from "../../Components/Navbar";
 import { Footer } from "../../Components/Footer";
+import { v4 as uuidv4 } from "uuid";
+import toast, { Toaster } from "react-hot-toast";
 
-export function Contact(){
+export function Contact() {
+  const [dark, setDark] = useState(
+    localStorage.getItem("darkMode") === "true"
+  );
 
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
-const [sent, setSent] = useState(null);
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
 
+  const [errors, setErrors] = useState({});
 
-const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  /* ---------- DARK MODE ---------- */
+  useEffect(() => {
+    document.body.classList.toggle("dark", dark);
+    localStorage.setItem("darkMode", dark);
+  }, [dark]);
 
+  const validate = () => {
+    const err = {};
+    if (!form.name) err.name = "Name is required";
+    if (!form.phone) err.phone = "Phone is required";
+    if (!form.message) err.message = "Message is required";
+    return err;
+  };
 
-const handleSubmit = (e) => {
-e.preventDefault();
-if (!form.name || !form.phone || !form.message) {
-setSent({ ok: false, message: 'Please fill required fields.' });
-return;
-}
+  const saveContact = (contact) => {
+    const inbox = JSON.parse(localStorage.getItem("adminInbox") || "[]");
+    inbox.unshift(contact);
+    localStorage.setItem("adminInbox", JSON.stringify(inbox));
+  };
 
+  const onChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
-saveContact({ id: uuidv4(), ...form, createdAt: new Date().toISOString() });
-setSent({ ok: true, message: 'Message sent. We will contact you shortly.' });
-setForm({ name: '', phone: '', email: '', message: '' });
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
 
-    return(
-        <>
-        <Navbar />
-            
-                {/*  */}
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      toast.error("Please fix the form errors");
+      return;
+    }
 
-                {/* <section className="contact-container">
-      <div className="contact-image">
-        <img src="public\images\ware-1024x535-1.webp" alt="Contact Visual" />
-      </div>
+    saveContact({
+      id: uuidv4(),
+      ...form,
+      createdAt: new Date().toISOString(),
+      status: "unread",
+    });
 
-      <div className="contact-form">
-        <h2>Send Us a Message</h2>
-        <form>
-          <input type="text" name="fullname" placeholder="Enter Full Name" required />
-          <input type="tel" name="phone" placeholder="Enter Phone Number" required />
-          <input type="email" name="email" placeholder="Enter Email" required />
-          <input type="text" name="service" placeholder="Service Description" required />
-          <textarea name="message" placeholder="Your Message..." rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section> */}
+    toast.success("Message sent successfully!");
+    setErrors({});
+    setForm({ name: "", phone: "", email: "", message: "" });
+  };
 
-    <main className="page contact-page">
-<h2>Contact Us</h2>
-<div className="contact-grid">
-<form className="contact-form" onSubmit={handleSubmit}>
-<label>Name*</label>
-<input name="name" value={form.name} onChange={onChange} />
+  return (
+    <>
+      <Navbar />
+      <Toaster position="top-right" />
 
+      <main className="page contact-page">
+        <div className="contact-header">
+          <h2>Contact Us</h2>
+          <button className="dark-toggle" onClick={() => setDark(!dark)}>
+            {dark ? "☀️ Light" : "🌙 Dark"}
+          </button>
+        </div>
 
-<label>Phone*</label>
-<input name="phone" value={form.phone} onChange={onChange} />
+        <div className="contact-grid">
+          {/* FORM */}
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <input
+              name="name"
+              placeholder="Full Name *"
+              value={form.name}
+              onChange={onChange}
+              className={errors.name ? "invalid" : ""}
+            />
+            {errors.name && <span className="error-text">{errors.name}</span>}
 
+            <input
+              name="phone"
+              placeholder="Phone *"
+              value={form.phone}
+              onChange={onChange}
+              className={errors.phone ? "invalid" : ""}
+            />
+            {errors.phone && (
+              <span className="error-text">{errors.phone}</span>
+            )}
 
-<label>Email</label>
-<input name="email" value={form.email} onChange={onChange} />
+            <input
+              name="email"
+              placeholder="Email (optional)"
+              value={form.email}
+              onChange={onChange}
+            />
 
+            <textarea
+              name="message"
+              placeholder="Your Message *"
+              value={form.message}
+              onChange={onChange}
+              className={errors.message ? "invalid" : ""}
+            />
+            {errors.message && (
+              <span className="error-text">{errors.message}</span>
+            )}
 
-<label>Message*</label>
-<textarea name="message" value={form.message} onChange={onChange} />
+            <button className="btn primary" type="submit">
+              Send Message
+            </button>
+          </form>
 
+          {/* INFO + MAP */}
+          <div className="contact-info">
+            <h4>Fast Contact</h4>
+            <p>📞 +237 676 865 110</p>
+            <p>📧 go-delivery@gmail.com</p>
+            <p>
+              💬{" "}
+              <a href="https://wa.me/237676865110" target="_blank" rel="noreferrer">
+                WhatsApp Chat
+              </a>
+            </p>
 
-<div className="form-actions">
-<button className="btn primary" type="submit">Send Message</button>
-</div>
+            <div className="hours">
+              <strong>Working Hours</strong>
+              <p>Mon - Sun: 06:00 - 22:00</p>
+            </div>
 
+            {/* MAP */}
+            <div className="map">
+              <iframe
+                title="map"
+                src="https://www.google.com/maps?q=Douala%20Cameroon&output=embed"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </main>
 
-{sent && <div className={`notice ${sent.ok ? 'ok' : 'err'}`}>{sent.message}</div>}
-</form>
-
-
-<div className="contact-info">
-<h4>Fast Contact</h4>
-<p>Phone: <a href="tel:+237676865110">+237 676 865 110</a></p>
-<p>Email: <a href="email:go-delivery@gmail.com">go-delivery@gmail.com</a></p>
-<p>WhatsApp: <a href="https://wa.me/237676865110">Open Chat</a></p>
-
-
-<div className="hours">
-<strong>Working Hours</strong>
-<p>Mon - Sun: 06:00 - 22:00</p>
-</div>
-</div>
-</div>
-</main>
-
-
-
-        <Footer />
-        </>
-    );
+      <Footer />
+    </>
+  );
 }

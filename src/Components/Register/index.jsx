@@ -1,145 +1,187 @@
-import React, { useState } from 'react';
-import './index.css';
+// src/pages/Register.jsx
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { createUser } from "../../Utils/userStorage";
+import { useNavigate } from "react-router-dom";
+import "./index.css"; // CSS provided below
 
 export function Register() {
-  const [formData, setFormData] = useState({
-    firstname: '',
-    secondname: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    postal: "",
+    vehicleType: "",
+    licensePlate: "",
+    yearsOfExperience: "",
+    preferredArea: { local: false, regional: false, national: false, other: false },
+    preferredTime: "Morning",
   });
+  const [error, setError] = useState(null);
 
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const onChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (name.startsWith("preferredArea.")) {
+      const key = name.split(".")[1];
+      setForm((f) => ({ ...f, preferredArea: { ...f.preferredArea, [key]: checked } }));
+    } else {
+      setForm((f) => ({ ...f, [name]: value }));
+    }
   };
 
-  // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
-
-    const { firstname, secondname, email, password, confirmPassword } = formData;
-
-    // Validation
-    if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+    // Basic validation
+    if (!form.firstName || !form.lastName || !form.email || !form.phone) {
+      setError("Please complete required fields (name, email, phone).");
       return;
     }
 
-    // Get existing users from localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if email already exists
-    const userExists = existingUsers.some((user) => user.email === email);
-    if (userExists) {
-      setError("Email already registered!");
-      return;
-    }
-
-    // Create new user object
-    const newUser = {
-      firstname,
-      secondname,
-      email,
-      password,
+    // Create user object
+    const id = uuidv4();
+    const user = {
+      id,
+      firstName: form.firstName,
+      lastName: form.lastName,
+      fullName: `${form.firstName} ${form.lastName}`,
+      email: form.email,
+      phone: form.phone,
+      address1: form.address1,
+      address2: form.address2,
+      city: form.city,
+      state: form.state,
+      postal: form.postal,
+      vehicleType: form.vehicleType,
+      licensePlate: form.licensePlate,
+      yearsOfExperience: form.yearsOfExperience,
+      preferredArea: form.preferredArea,
+      preferredTime: form.preferredTime,
+      createdAt: new Date().toISOString(),
     };
 
-    // Save user in localStorage
-    existingUsers.push(newUser);
-    localStorage.setItem("users", JSON.stringify(existingUsers));
+    // Save to localStorage via utility
+    createUser(user);
 
-    setSuccess("Account created successfully!");
+    // Auto-login (store current user) so dashboard can read it
+    localStorage.setItem("currentUser", JSON.stringify(user));
 
-    // Redirect to login after 2 seconds
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 2000);
+    // Redirect to user dashboard
+    navigate(`/landing/${id}/userdashboard`);
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Create an Account</h2>
-
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
-
-        <div className="form-group">
-          <label htmlFor="firstname">First Name</label>
-          <input
-            type="text"
-            id="firstname"
-            name="firstname"
-            value={formData.firstname}
-            onChange={handleChange}
-            required
-          />
+    <main className="register-page">
+      <div className="register-card">
+        <div className="register-hero" style={{ backgroundImage: `url("/mnt/data/Screenshot 2025-11-25 143431.png")` }}>
+          <h1>Courier Registration Form</h1>
+          <p>Please fill out the following information to register as a courier.</p>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="secondname">Second Name</label>
-          <input
-            type="text"
-            id="secondname"
-            name="secondname"
-            value={formData.secondname}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form className="reg-form" onSubmit={handleSubmit}>
+          {error && <div className="form-error">{error}</div>}
 
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="row two">
+            <div>
+              <label>First Name</label>
+              <input name="firstName" value={form.firstName} onChange={onChange} required />
+            </div>
+            <div>
+              <label>Last Name</label>
+              <input name="lastName" value={form.lastName} onChange={onChange} required />
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="row two">
+            <div>
+              <label>Email</label>
+              <input name="email" type="email" value={form.email} onChange={onChange} required />
+            </div>
+            <div>
+              <label>Phone Number</label>
+              <input name="phone" value={form.phone} onChange={onChange} required />
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="row">
+            <label>Address - Street</label>
+            <input name="address1" value={form.address1} onChange={onChange} />
+          </div>
 
-        <button type="submit" className="register-button">Register</button>
+          <div className="row">
+            <label>Address - Street 2</label>
+            <input name="address2" value={form.address2} onChange={onChange} />
+          </div>
 
-        <p className="login-link">
-          Already have an account? <a href="/login">Login here</a>
-        </p>
-      </form>
-    </div>
+          <div className="row two">
+            <div>
+              <label>City</label>
+              <input name="city" value={form.city} onChange={onChange} />
+            </div>
+            <div>
+              <label>State / Province</label>
+              <input name="state" value={form.state} onChange={onChange} />
+            </div>
+          </div>
+
+          <div className="row">
+            <label>Postal / Zip Code</label>
+            <input name="postal" value={form.postal} onChange={onChange} />
+          </div>
+
+          <div className="row two">
+            <div>
+              <label>Vehicle Type</label>
+              <select name="vehicleType" value={form.vehicleType} onChange={onChange}>
+                <option value="">Please Select</option>
+                <option>Motorbike</option>
+                <option>Car</option>
+                <option>Van</option>
+                <option>Bicycle</option>
+              </select>
+            </div>
+            <div>
+              <label>License Plate Number</label>
+              <input name="licensePlate" value={form.licensePlate} onChange={onChange} />
+            </div>
+          </div>
+
+          <div className="row">
+            <label>Years of Experience</label>
+            <input name="yearsOfExperience" value={form.yearsOfExperience} onChange={onChange} />
+          </div>
+
+          <div className="row two">
+            <div>
+              <label>Preferred Delivery Area</label>
+              <div className="checkboxes">
+                <label><input type="checkbox" name="preferredArea.local" checked={form.preferredArea.local} onChange={onChange} /> Local</label>
+                <label><input type="checkbox" name="preferredArea.regional" checked={form.preferredArea.regional} onChange={onChange} /> Regional</label>
+                <label><input type="checkbox" name="preferredArea.national" checked={form.preferredArea.national} onChange={onChange} /> National</label>
+                <label><input type="checkbox" name="preferredArea.other" checked={form.preferredArea.other} onChange={onChange} /> Other</label>
+              </div>
+            </div>
+
+            <div>
+              <label>Preferred Delivery Time</label>
+              <div className="radios">
+                <label><input type="radio" name="preferredTime" value="Morning" checked={form.preferredTime === "Morning"} onChange={onChange} /> Morning</label>
+                <label><input type="radio" name="preferredTime" value="Afternoon" checked={form.preferredTime === "Afternoon"} onChange={onChange} /> Afternoon</label>
+                <label><input type="radio" name="preferredTime" value="Evening" checked={form.preferredTime === "Evening"} onChange={onChange} /> Evening</label>
+              </div>
+            </div>
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="btn primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 }
