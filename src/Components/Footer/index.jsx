@@ -33,7 +33,7 @@ export function Footer() {
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/237676865110?text=Hello%2C%20I%20want%20to%20send%20a%20package" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-whatsapp"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
